@@ -28,11 +28,16 @@ module.exports = {
         exclude: /node_modules/, 
         use: 'babel-loader', 
       },
+      {
+        test: /\.scss$/, // Match .scss files
+        use: ['style-loader', 'css-loader', 'sass-loader'], // Use these loaders in sequence
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'public', 'index.html')
     })
-  ]
+  ],
+  
 };

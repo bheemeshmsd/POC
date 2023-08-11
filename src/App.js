@@ -1,10 +1,11 @@
 import React from "react";
+import '../assests/styles.scss';
 
 const App = () =>{
     return (
-        <h1>
-            Hello world! I am using React
-        </h1>
+        <div className="mainContainer">
+           
+        </div>
     )
 }
 
