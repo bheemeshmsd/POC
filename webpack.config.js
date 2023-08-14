@@ -32,6 +32,12 @@ module.exports = {
         test: /\.scss$/, // Match .scss files
         use: ['style-loader', 'css-loader', 'sass-loader'], // Use these loaders in sequence
       },
+      {
+        test: /\.(jpg|png)$/,
+        use: {
+          loader: 'url-loader',
+        },
+      },
     ],
   },
   plugins: [

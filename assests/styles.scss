@@ -1,11 +1,165 @@
-.mainContainer{
+
+body{
+    margin: 0;
+    overflow: scroll;
+    position: relative;
+}
+
+.containerWapper{
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+.mainContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+}
+
+.wrapper {
+    width: 50%;
+    height: 80%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    min-width: 300px;
+    background-image: linear-gradient(to right, #CF9BC5, #AE80C7);
+    position: relative;
+}
+
+.listContainer {
+    height: 70%;
+    width: 40%;
+    min-height: 350px;
+    min-width: 250px;
+    background-color: #FEFEFE;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.listIconContainer
+{
+    height: 25px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+    img{
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 10px;
+        transition: background-color 0.3s ease;
+    }
+
+    img:hover{
+        background-color: #AE80C7;
+    }
+}
+
+.listNavBar{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.listBody{
+    height: calc(100% - 50px);
+    width: 100%;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+}
+
+.listItem{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+
+    .strike{
+        text-decoration: line-through;
+    }
+
+    h3{
+        margin-left: 10px;
+    }
+}
+
+.addListButton{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 70px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    img{
+        height: 50%;
+        width: 50%;
+    }
+}
+
+.modalContainer{
     height: 100vh;
     width: 100vw;
     display: flex;
     justify-content: center;
-    background-color: aqua;
+    align-items: center;
+    z-index: 10;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
-body{
-    margin: 0;
+.modalContent{
+    height: 200px;
+    width: 350px;
+    background-color: antiquewhite;
+
+    .modalNavBar{
+        height: 50px;
+        width: 100%;
+        background-color: #AE80C7;
+        position: relative;
+        button{
+            position: absolute;
+            right: 10px;
+            top:10px;
+        }
+    }
+
+    .modalBody{
+        height: calc(100% - 50px);
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        input{
+            width: 100%;
+            margin: 0 10px;
+            padding: 10px;
+        }
+    }
+}
+
+
+.mainContainerRemove,.modalContainerRemove{
+    display: none;
 }
