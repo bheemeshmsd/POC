@@ -87,14 +87,30 @@ body{
     width: 100%;
     display: flex;
     align-items: center;
-    padding-left: 10px;
+    justify-content: space-between;
+
+    input{
+        margin-left: 10px;
+    }
 
     .strike{
         text-decoration: line-through;
     }
 
-    h3{
-        margin-left: 10px;
+ 
+    button{
+        height: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        background-color: transparent;
+        img{
+            height: 100%;
+            width: 100%;
+        }
     }
 }
 

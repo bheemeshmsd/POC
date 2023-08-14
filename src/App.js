@@ -36,7 +36,7 @@ const App = () => {
         setCurrentItem((currentItem) => e.target.value);
     }
 
-    const handleClose = () =>{
+    const handleClose = () => {
         setModal(false);
         setCurrentItem("");
     }
