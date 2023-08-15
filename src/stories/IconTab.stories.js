@@ -1,4 +1,4 @@
-import IconTab from "../Components/IconTab";
+import IconTab from "../components/IconTab";
 import listIcon from "../../assests/icons/list.png";
 import '../../assests/styles.scss'
 

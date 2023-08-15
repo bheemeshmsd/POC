@@ -3,6 +3,7 @@ import {
   DELETE_ITEM,
   UPDATE_ITEM,
   ADD_ARRAY,
+  DELETE_ARRAY,
 } from "../actions/actionType";
 
 const initialState = {
@@ -50,6 +51,15 @@ export const listReducer = (state = initialState, action) => {
             : value
         ),
       };
+
+    case DELETE_ARRAY :
+        return{
+            ...state,
+            list: [
+                ...state.list.slice(0, action.payload.index),
+                ...state.list.slice(action.payload.index + 1),
+              ]
+        }
     default:
       return state;
   }

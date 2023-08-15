@@ -6,8 +6,9 @@ import todo from "../assests/icons/todo.png";
 import ListItem from "./components/ListItem";
 import IconTab from "./components/IconTab";
 import { useDispatch, useSelector } from "react-redux";
-import { addItem ,addArray} from "./redux/actions/listActions";
+import { addItem, addArray, deleteArray } from "./redux/actions/listActions";
 import AddIcon from "../assests/icons/add.png";
+import DeleteIcon from "../assests/icons/remove.png";
 import ListInput from "./components/InputComponent";
 const navBarList = listIconBuilder(IconTab, [list, todo]);
 
@@ -18,17 +19,14 @@ const IconArray = [{ src: list, tab: "list" }];
 const App = () => {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
-  
 
   const handleCurrentTab = (tab) => {
     console.log(tab);
-    setCurrentTab((currentTab) => tab);
   };
 
   const handleModal = () => {
     setModal((modalActive) => true);
   };
-
 
   const handleClose = () => {
     setModal(false);
@@ -46,42 +44,66 @@ const App = () => {
     dispatch(addArray());
   };
 
-  const [currentTab, setCurrentTab] = useState("list");
+  const handleDeleteTodo = (index) => {
+    dispatch(deleteArray({ index: index }));
+    setToDoListCount((todoListCount) => todoListCount - 1);
+  };
   const [modalActive, setModal] = useState(false);
   const [currentItem, setCurrentItem] = useState("");
   const [todoListCount, setToDoListCount] = useState(1);
   let listItemArray = state.list;
 
-  console.log(state.list);
+  console.log(listItemArray);
+
+  //Automatic detetion will attendend this later
+  useEffect(() => {
+    // state.list.map((value, index) => {
+    //   console.log(index, value.length);
+    //   if (value?.length == 0 && index >0) {
+    //     dispatch(deleteArray(index));
+    //   }
+    // });
+  }, [state.list]);
 
   return (
     <div className="containerWapper">
       <div className="mainContainer">
         <div className="wrapper">
-          {Array(todoListCount).fill(0).map((value,ind) => (
-            <div className="listContainer">
-              <div className="listNavBar">
-                {IconArray?.map((value) => (
-                  <IconTab
-                    imgUrl={value.src}
-                    handleTab={() => handleCurrentTab(value.tab)}
-                  />
-                ))}
-              </div>
-              {currentTab === "list" ? (
+          {Array(todoListCount)
+            .fill(0)
+            .map((value, ind) => (
+              <div className="listContainer">
+                <div className="listNavBar">
+                  {IconArray?.map((value) => (
+                    <IconTab
+                      imgUrl={value.src}
+                      handleTab={() => handleCurrentTab(value.tab)}
+                    />
+                  ))}
+                  {ind > 0 && (
+                    <button
+                      onClick={() => {
+                        handleDeleteTodo(ind);
+                      }}
+                    >
+                      delete
+                    </button>
+                  )}
+                </div>
+
                 <div className="listBody">
                   {listItemArray[ind]?.map((value, index, arr) => (
-                    <ListItem content={value} index={index} toDoIndex={ind} array={arr} />
+                    <ListItem
+                      content={value}
+                      index={index}
+                      toDoIndex={ind}
+                      array={arr}
+                    />
                   ))}
-                  <ListInput index={ind}/>
+                  <ListInput index={ind} />
                 </div>
-              ) : (
-                <div>
-                  <h3>No List</h3>
-                </div>
-              )}
-            </div>
-          ))}
+              </div>
+            ))}
 
           <button className="addListButton" onClick={handleTodo}>
             <img src={AddIcon}></img>
