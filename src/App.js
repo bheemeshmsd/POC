@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "../assests/styles.scss";
-import listIconBuilder from "./Components/listIconBuilder";
+import listIconBuilder from "./components/listIconBuilder";
 import list from "../assests/icons/list.png";
 import todo from "../assests/icons/todo.png";
-import ListItem from "./Components/ListItem";
-import IconTab from "./Components/IconTab";
+import ListItem from "./components/ListItem";
+import IconTab from "./components/IconTab";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem ,addArray} from "./redux/actions/listActions";
 import AddIcon from "../assests/icons/add.png";
