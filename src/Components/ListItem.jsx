@@ -18,7 +18,7 @@ const ListItem = ({ content, index }) => {
     }
 
     return (<div className="listItem">
-        <input type="checkbox" onChange={handleCheckBox} ></input>
+        <input type="checkbox" onChange={handleCheckBox}  checked={content.checkbox} ></input>
         {
             content?.checkbox ? <h3 className="strike">{content.value}</h3> : <h3>{content.value}</h3>
         }

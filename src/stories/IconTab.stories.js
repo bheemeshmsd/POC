@@ -1,6 +1,6 @@
 import IconTab from "../Components/IconTab";
 import listIcon from "../../assests/icons/list.png";
-import '../../assests/styles.sass'
+import '../../assests/styles.scss'
 
 export default {
     title: "Componentss/IconTab",
