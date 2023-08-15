@@ -8,7 +8,7 @@ import IconTab from "./components/IconTab";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem ,addArray} from "./redux/actions/listActions";
 import AddIcon from "../assests/icons/add.png";
-
+import ListInput from "./components/InputComponent";
 const navBarList = listIconBuilder(IconTab, [list, todo]);
 
 const IconArray = [{ src: list, tab: "list" }];
@@ -29,19 +29,6 @@ const App = () => {
     setModal((modalActive) => true);
   };
 
-  const handleListImput = (e) => {
-    console.log(e.target.value);
-    setCurrentItem((currentItem) => e.target.value);
-  };
-
-  const handleKeyPress = (e,ind) => {
-    console.log(ind);
-    if (e.key === "Enter") {
-      dispatch(addItem({ value: currentItem, checkbox: false ,id:ind}));
-      setModal(false);
-      setCurrentItem("");
-    }
-  };
 
   const handleClose = () => {
     setModal(false);
@@ -86,11 +73,7 @@ const App = () => {
                   {listItemArray[ind]?.map((value, index, arr) => (
                     <ListItem content={value} index={index} toDoIndex={ind} array={arr} />
                   ))}
-                  <input
-                    value={currentItem}
-                    onChange={handleListImput}
-                    onKeyDown={(e)=>handleKeyPress(e,ind)}
-                  ></input>
+                  <ListInput index={ind}/>
                 </div>
               ) : (
                 <div>
