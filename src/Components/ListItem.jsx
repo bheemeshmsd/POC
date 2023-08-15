@@ -10,7 +10,7 @@ const ListItem = ({ content, index ,toDoIndex }) => {
 
 
     const handleCheckBox = (e) => {
-        dispatch(updateItem({index:index,checked:e.target.checked}));
+        dispatch(updateItem({index,checked:e.target.checked,toDoIndex}));
     }
 
     const handleDelete = () =>{
