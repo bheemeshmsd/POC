@@ -84,7 +84,7 @@ const App = () => {
               {currentTab === "list" ? (
                 <div className="listBody">
                   {listItemArray[ind]?.map((value, index, arr) => (
-                    <ListItem content={value} index={index} array={arr} />
+                    <ListItem content={value} index={index} toDoIndex={ind} array={arr} />
                   ))}
                   <input
                     value={currentItem}

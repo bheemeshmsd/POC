@@ -19,12 +19,14 @@ export const listReducer = (state = initialState, action) => {
         list: state.list.map((subArray, ind) => ind === action.payload.id ? [...subArray, action.payload] : subArray)
       };
     case DELETE_ITEM:
+
+    console.log(action.payload)
       return {
         ...state,
-        list: [
-          ...state.list.slice(0, action.payload),
-          ...state.list.slice(action.payload + 1),
-        ],
+        list: state.list.map((subArray, ind) => ind === action.payload.toDoIndex ? [
+            ...subArray.slice(0, action.payload.index),
+            ...subArray.slice(action.payload.index + 1),
+          ] : subArray) ,
       };
     case UPDATE_ITEM:
       return {

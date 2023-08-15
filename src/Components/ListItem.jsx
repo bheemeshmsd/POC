@@ -3,7 +3,7 @@ import { updateItem ,deleteItem} from "../redux/actions/listActions";
 import { useSelector, useDispatch } from "react-redux";
 import deleteIcon from "../../assests/icons/remove.png";
 
-const ListItem = ({ content, index }) => {
+const ListItem = ({ content, index ,toDoIndex }) => {
 
     let list = useSelector((state) => state.list);
     const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const ListItem = ({ content, index }) => {
     }
 
     const handleDelete = () =>{
-        dispatch(deleteItem(index));
+        dispatch(deleteItem({index,toDoIndex}));
     }
 
     return (<div className="listItem">
