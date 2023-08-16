@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { useDispatch } from "react-redux";
-import { addItem } from "../redux/actions/listActions";
+import { addItem } from "../../redux/actions/listActions";
 const ListInput = ({index}) =>{
 
   const [currentItem, setCurrentItem] = useState("");

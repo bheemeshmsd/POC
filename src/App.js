@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "../assests/styles.scss";
-import listIconBuilder from "./components/listIconBuilder";
+import listIconBuilder from "./components/ListIconBuilder";
 import list from "../assests/icons/list.png";
 import todo from "../assests/icons/todo.png";
-import ListItem from "./components/ListItem";
 import IconTab from "./components/IconTab";
 import { useDispatch, useSelector } from "react-redux";
 import { addArray, deleteArray } from "./redux/actions/listActions";
 import AddIcon from "../assests/icons/add.png";
-import ListInput from "./components/InputComponent";
 import ListComponent from "./components/ListComponent";
 const navBarList = listIconBuilder(IconTab, [list, todo]);
 

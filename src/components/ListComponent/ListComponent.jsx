@@ -1,7 +1,7 @@
 import React from "react";
-import IconTab from "./IconTab";
-import ListInput from "./InputComponent";
-import ListItem from "./ListItem";
+import IconTab from "../IconTab";
+import ListInput from "../InputComponent";
+import ListItem from "../ListItem";
 
 const ListComponent = ({ IconArray, listItemArray, ind, handleDeleteTodo }) => {
   return (

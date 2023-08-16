@@ -1,7 +1,7 @@
 import React from "react";
-import { updateItem ,deleteItem} from "../redux/actions/listActions";
+import { updateItem ,deleteItem} from "../../redux/actions/listActions";
 import { useSelector, useDispatch } from "react-redux";
-import deleteIcon from "../../assests/icons/remove.png";
+import deleteIcon from "../../../assests/icons/remove.png";
 
 const ListItem = ({ content, index ,toDoIndex }) => {
 
