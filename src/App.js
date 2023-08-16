@@ -44,6 +44,9 @@ const App = () => {
   return (
     <div className="containerWapper">
       <div className="mainContainer">
+        <button className="addListButton" onClick={handleTodo}>
+          <img src={AddIcon}></img>
+        </button>
         <div className="wrapper">
           {Array(todoListCount)
             .fill(0)
@@ -55,9 +58,6 @@ const App = () => {
                 IconArray={IconArray}
               />
             ))}
-          <button className="addListButton" onClick={handleTodo}>
-            <img src={AddIcon}></img>
-          </button>
         </div>
       </div>
     </div>

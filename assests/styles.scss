@@ -16,7 +16,27 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
+    flex-direction: column;
+    background-image: linear-gradient(to right, #CF9BC5, #AE80C7);
+
+
+    .addListButton{
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        outline: none;
+        border: none;
+        margin: 10px;
+        cursor: pointer;
+        img{
+            height: 50%;
+            width: 50%;
+        }
+    }
+    
 }
 
 .wrapper {
@@ -24,14 +44,19 @@ body {
     height: 100%;
     display: flex;
     gap: 10px;
-    justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
     min-height: 400px;
     min-width: 300px;
-    background-image: linear-gradient(to right, #CF9BC5, #AE80C7);
-    position: relative;
     overflow: scroll;
+    padding: 100px;
+    box-sizing: border-box;
+}
+
+@media (max-width:500px) {
+    .wrapper{
+        padding: 10px;
+        justify-content: center;
+    }
 }
 
 .listContainer {
@@ -72,6 +97,27 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    border-bottom: 1px gray solid;
+    margin-bottom: 10px;
+    position: relative;
+
+    button{
+        height: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        background-color: transparent;
+        img{
+            height: 100%;
+            width: 100%;
+        }
+    }
 }
 
 .listBody{
@@ -80,10 +126,15 @@ body {
     overflow: scroll;
     display: flex;
     flex-direction: column;
+
+    input{
+        outline: none;
+        margin: 0 10px;
+    }
 }
 
 .listItem{
-    height: 50px;
+    // height: 50px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -95,6 +146,14 @@ body {
 
     .strike{
         text-decoration: line-through;
+    }
+
+    h3{
+        white-space: normal;
+        overflow: scroll;
+        width: fit-content;
+        height: fit-content;
+        max-width: 75%;
     }
 
  
@@ -114,23 +173,8 @@ body {
     }
 }
 
-.addListButton{
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top:10px;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    img{
-        height: 50%;
-        width: 50%;
-    }
-}
+
+
 
 .modalContainer{
     height: 100vh;
