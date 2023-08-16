@@ -7,7 +7,6 @@ const ListInput = ({index}) =>{
   const dispatch = useDispatch();
 
   const handleListInput = (e) => {
-    console.log(e.target.value);
     setCurrentItem((currentItem) => e.target.value);
   };
 

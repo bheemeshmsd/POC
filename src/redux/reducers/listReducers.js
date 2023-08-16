@@ -18,7 +18,6 @@ export const listReducer = (state = initialState, action) => {
         list: [...state.list, []],
       };
     case ADD_ITEM:
-      console.log(action.payload);
       return {
         ...state,
         list: state.list.map((subArray, ind) =>
@@ -26,7 +25,6 @@ export const listReducer = (state = initialState, action) => {
         ),
       };
     case DELETE_ITEM:
-      console.log(action.payload);
       return {
         ...state,
         list: state.list.map((subArray, ind) =>
