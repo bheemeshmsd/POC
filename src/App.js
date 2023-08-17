@@ -9,6 +9,7 @@ import { addArray, deleteArray } from "./redux/actions/listActions";
 import AddIcon from "../assests/icons/add.png";
 import ListComponent from "./components/list-component";
 const navBarList = listIconBuilder(IconTab, [list, todo]);
+import NavBar from "./components/navbar/navBar";
 
 const IconArray = [{ src: list, tab: "list" }];
 
@@ -44,9 +45,10 @@ const App = () => {
   return (
     <div className="containerWapper">
       <div className="mainContainer">
-        <button className="addListButton" onClick={handleTodo}>
+        {/* <button className="addListButton" onClick={handleTodo}>
           <img src={AddIcon}></img>
-        </button>
+        </button> */}
+        <NavBar/>
         <div className="wrapper">
           {Array(todoListCount)
             .fill(0)

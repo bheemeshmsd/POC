@@ -1,15 +1,13 @@
+
+@use "../src/components/navbar/navbar";
+@use "../src/components/button-icon/buttonIcon";
+
+@import "mixins";
+
 body {
     margin: 0;
     overflow: scroll;
     position: relative;
-}
-
-@mixin flexbox-style($justify:center, $align:center ,$direction:row,$wrap:nowrap) {
-    display: flex;
-    justify-content: $justify;
-    align-items: $align;
-    flex-direction: $direction;
-    flex-wrap: $wrap;
 }
 
 %rm-outline-border{

@@ -1,0 +1,17 @@
+@import "../../../assests/mixins";
+
+.buttonContainer{
+    height: 50px;
+    width: 50px;
+    @include flexbox-style;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    img{
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+    }
+
+}

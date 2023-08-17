@@ -1,0 +1,53 @@
+@import "../../../assests/mixins";
+
+.navbarContainer{
+    height: 55px;
+    width: 100%;
+    @include flexbox-style($justify:space-between);
+    background-color:white;
+}
+
+.left{
+    width: 250px;
+    height: 100%;
+    @include flexbox-style($justify:flex-start);
+    background-color: antiquewhite;
+
+    .iconTab{
+        margin-left: 10px;
+        @include flexbox-style;
+    }
+}
+.middle{
+        width: 100%;
+        height: 100%;
+        @include flexbox-style;
+        background-color: aquamarine;
+
+        .inputWrapper{
+            @include flexbox-style;
+            width: 100%;
+            height: 100%;
+            input{
+                flex: 1 1 100%;
+                max-width: 500px;
+                padding: 12px 10px;
+                border-radius: 5px;
+                border: none;
+                outline: none;
+            }
+        }
+       
+}
+.right{
+    width: 400px;
+    height: 100%;
+    background-color: aqua;
+    @include flexbox-style($justify:space-between);
+
+    .rightGrp1,.rightGrp2{
+        @include flexbox-style;
+        height: 100%;
+        width: fit-content;
+    }
+}
