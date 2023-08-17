@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import IconTab from "../IconTab";
+import IconTab from "../icon-tab";
 import ListItem from "../ListItem";
 import DeleteIcon from "../../../assests/icons/delete.png";
 import { useDispatch } from "react-redux";

@@ -1,10 +1,23 @@
-import IconTab from "../components/IconTab";
+import IconTab from "../components/icon-tab";
 import listIcon from "../../assests/icons/list.png";
-import '../../assests/styles.scss'
+import "../../assests/styles.scss";
+import { action } from '@storybook/addon-actions';
+
 
 export default {
-    title: "Componentss/IconTab",
-    component: IconTab,
-}
+  title: "Components/IconTab",
+  component: IconTab,
+  args: {
+    imgUrl: listIcon,
+    handleTab: action('clicked'),
+  },
+};
 
-export const list = () => <IconTab imgUrl={listIcon}/>
+const Template = (args) => <IconTab {...args} />;
+
+export const Default = Template.bind({});
+
+Default.args = {
+  imgUrl: listIcon,
+  handleTab: action('clicked')
+};

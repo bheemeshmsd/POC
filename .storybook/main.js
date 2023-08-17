@@ -11,6 +11,7 @@ module.exports = {
     "@storybook/addon-onboarding",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
+    '@storybook/addon-actions',
     {
       name: "@storybook/addon-postcss",
       options: {

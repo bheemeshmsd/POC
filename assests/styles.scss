@@ -1,50 +1,56 @@
-
 body {
     margin: 0;
     overflow: scroll;
     position: relative;
 }
 
-.containerWapper{
+@mixin flexbox-style($justify:center, $align:center ,$direction:row,$wrap:nowrap) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+}
+
+.rm-outline-border{
+    outline: none;
+    border: none;
+}
+
+.containerWapper {
     height: 100vh;
     width: 100vw;
     position: relative;
 }
+
 .mainContainer {
     height: 100%;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    @include flexbox-style($direction:column);
     background-image: linear-gradient(to right, #CF9BC5, #AE80C7);
-
-
-    .addListButton{
+    
+    .addListButton {
         height: 50px;
         width: 50px;
         border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        outline: none;
-        border: none;
+        @include flexbox-style;
+        @extend .rm-outline-border;
         margin: 10px;
         cursor: pointer;
-        img{
+
+        img {
             height: 50%;
             width: 50%;
         }
     }
-    
+
 }
 
 .wrapper {
     width: 100%;
     height: 100%;
-    display: flex;
     gap: 10px;
-    flex-wrap: wrap;
+    @include flexbox-style($justify:flex-start,$align:flex-start,$wrap:wrap);
     min-height: 400px;
     min-width: 300px;
     overflow: scroll;
@@ -53,7 +59,7 @@ body {
 }
 
 @media (max-width:500px) {
-    .wrapper{
+    .wrapper {
         padding: 10px;
         justify-content: center;
     }
@@ -64,19 +70,15 @@ body {
     width: 300px;
     background-color: #FEFEFE;
     border-radius: 10px;
-    display: flex;
-    flex-direction: column;
+    @include flexbox-style($justify:flex-start,$align:flex-start,$direction:column);
 }
 
-.listIconContainer
-{
+.listIconContainer {
     height: 25px;
     width: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
- 
-    img{
+    @include flexbox-style;
+
+    img {
         height: 100%;
         width: 100%;
         object-fit: contain;
@@ -86,69 +88,60 @@ body {
         transition: background-color 0.3s ease;
     }
 
-    img:hover{
+    img:hover {
         background-color: #AE80C7;
     }
 }
 
-.listNavBar{
+.listNavBar {
     height: 50px;
     width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    @include flexbox-style(space-around);
     border-bottom: 1px gray solid;
     margin-bottom: 10px;
     position: relative;
 
-    button{
+    button {
         height: 25px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        outline: none;
-        border: none;
+        @include flexbox-style;
+        @extend .rm-outline-border;
         cursor: pointer;
         position: absolute;
         right: 10px;
         top: 10px;
         background-color: transparent;
-        img{
+        img {
             height: 100%;
             width: 100%;
         }
     }
 }
 
-.listBody{
+.listBody {
     height: calc(100% - 50px);
     width: 100%;
     overflow: scroll;
-    display: flex;
-    flex-direction: column;
-
-    input{
+    @include flexbox-style($justify:flex-start,$align:flex-start,$direction:column);
+    input {
         outline: none;
         margin: 0 10px;
     }
 }
 
-.listItem{
+.listItem {
     // height: 50px;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include flexbox-style(space-between);
 
-    input{
+    input {
         margin-left: 10px;
     }
 
-    .strike{
+    .strike {
         text-decoration: line-through;
     }
 
-    h3{
+    h3 {
         white-space: normal;
         overflow: scroll;
         width: fit-content;
@@ -156,17 +149,15 @@ body {
         max-width: 75%;
     }
 
- 
-    button{
+
+    button {
         height: 25px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        outline: none;
-        border: none;
+        @include flexbox-style;
+        @extend .rm-outline-border;
         cursor: pointer;
         background-color: transparent;
-        img{
+
+        img {
             height: 100%;
             width: 100%;
         }
@@ -176,61 +167,55 @@ body {
 
 
 
-.modalContainer{
+.modalContainer {
     height: 100vh;
     width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flexbox-style;
     z-index: 10;
     position: fixed;
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-.modalContent{
+.modalContent {
     height: 200px;
     width: 350px;
     border-radius: 10px;
     background-color: #F2C2C5;
 
-    .modalNavBar{
+    .modalNavBar {
         height: 50px;
         width: 100%;
         background-color: #AE80C7;
         position: relative;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
-        button{
+
+        button {
             position: absolute;
             right: 10px;
-            top:10px;
+            top: 10px;
             border-radius: 10px;
-            border: none;
-            outline: none;
+            @extend .rm-outline-border;
             cursor: pointer;
         }
     }
 
-    .modalBody{
+    .modalBody {
         height: calc(100% - 50px);
         width: 100%;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        flex-direction: column;
-
-        input{
+        @include flexbox-style($justify:space-around,$direction:column);
+        input {
             width: 75%;
             margin: 0 10px;
             padding: 10px;
-            border: none;
-            outline: none;
+            @extend .rm-outline-border;
             border-radius: 15px;
         }
     }
 }
 
 
-.mainContainerRemove,.modalContainerRemove{
+.mainContainerRemove,
+.modalContainerRemove {
     display: none;
 }
