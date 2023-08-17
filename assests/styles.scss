@@ -46,7 +46,7 @@ body {
     .mainContainerBody{
         height: 100%;
         width: 100%;
-        @include flexbox-style;
+        @include flexbox-style($direction:column);
     }
 
 }
@@ -57,6 +57,7 @@ body {
     @include flexbox-style($justify:flex-start, $align:flex-start, $wrap:wrap,$gap:10px);
     min-height: 400px;
     min-width: 300px;
+    padding: 10px 75px;
     overflow: scroll;
     box-sizing: border-box;
 }

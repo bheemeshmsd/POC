@@ -11,6 +11,7 @@ import ListComponent from "./components/list-component";
 const navBarList = listIconBuilder(IconTab, [list, todo]);
 import NavBar from "./components/navbar";
 import SideBar from "./components/sidebar";
+import TitleContainer from "./components/title-container/titleContainer";
 
 const IconArray = [{ src: list, tab: "list" }];
 
@@ -30,7 +31,7 @@ const App = () => {
     setToDoListCount((todoListCount) => todoListCount - 1);
   };
 
-  const [todoListCount, setToDoListCount] = useState(1);
+  const [todoListCount, setToDoListCount] = useState(0);
   let listItemArray = state.list;
 
   //Automatic detetion will attendend this later
@@ -51,6 +52,7 @@ const App = () => {
         </button> */}
         <NavBar />
         <div className="mainContainerBody">
+          <TitleContainer/>
           <div className="wrapper">
           <SideBar />
             {Array(todoListCount)
