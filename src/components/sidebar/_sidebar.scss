@@ -10,8 +10,11 @@
     position: absolute;
     z-index: 2;
     left: 0;
+    top: 0;
+    transform: translateY(55px);
 }
 
 .hoverStyle{
     width: 200px;
+    
 }

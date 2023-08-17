@@ -51,8 +51,8 @@ const App = () => {
         </button> */}
         <NavBar />
         <div className="mainContainerBody">
-          <SideBar />
           <div className="wrapper">
+          <SideBar />
             {Array(todoListCount)
               .fill(0)
               .map((value, index) => (

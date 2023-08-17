@@ -27,7 +27,7 @@ const ListComponent = ({ IconArray, listItemArray, ind, handleDeleteTodo }) => {
         {/* {IconArray?.map((value) => (
           <IconTab imgUrl={value.src} />
         ))} */}
-        <h2>{`To Do List ${ind + 1}`}</h2>
+        {/* <h2>{`To Do List ${ind + 1}`}</h2> */}
         {ind > 0 && (
           <button
             onClick={() => {
@@ -46,6 +46,7 @@ const ListComponent = ({ IconArray, listItemArray, ind, handleDeleteTodo }) => {
           onChange={handleListInput}
           value={currentItem}
           onKeyDown={(e) => handleKeyPress(e, ind)}
+          placeholder="Add a list..."
         ></input>
       </div>
     </div>

@@ -1,6 +1,7 @@
 @use "../src/components/navbar/navbar";
 @use "../src/components/button-icon/buttonIcon";
 @use "../src//components/sidebar/sidebar";
+@use "../src/components/title-container/titleContainer";
 
 @import "mixins";
 
@@ -53,12 +54,10 @@ body {
 .wrapper {
     width: 100%;
     height: 100%;
-    gap: 10px;
-    @include flexbox-style($justify:flex-start, $align:flex-start, $wrap:wrap);
+    @include flexbox-style($justify:flex-start, $align:flex-start, $wrap:wrap,$gap:10px);
     min-height: 400px;
     min-width: 300px;
     overflow: scroll;
-    padding: 100px;
     box-sizing: border-box;
 }
 
@@ -74,6 +73,7 @@ body {
     width: 300px;
     background-color: #FEFEFE;
     border-radius: 10px;
+    border: 1px solid black;
     @include flexbox-style($justify:flex-start, $align:flex-start, $direction:column);
 }
 
@@ -101,7 +101,6 @@ body {
     height: 50px;
     width: 100%;
     @include flexbox-style(space-around);
-    border-bottom: 1px gray solid;
     margin-bottom: 10px;
     position: relative;
 
@@ -129,7 +128,7 @@ body {
     @include flexbox-style($justify:flex-start, $align:center, $direction:column);
 
     >input {
-        outline: none;
+        @extend %rm-outline-border;
         width: calc(100% - 50px);
     }
 }
