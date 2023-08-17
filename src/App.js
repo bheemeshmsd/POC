@@ -9,7 +9,8 @@ import { addArray, deleteArray } from "./redux/actions/listActions";
 import AddIcon from "../assests/icons/add.png";
 import ListComponent from "./components/list-component";
 const navBarList = listIconBuilder(IconTab, [list, todo]);
-import NavBar from "./components/navbar/navBar";
+import NavBar from "./components/navbar";
+import SideBar from "./components/sidebar";
 
 const IconArray = [{ src: list, tab: "list" }];
 
@@ -48,18 +49,21 @@ const App = () => {
         {/* <button className="addListButton" onClick={handleTodo}>
           <img src={AddIcon}></img>
         </button> */}
-        <NavBar/>
-        <div className="wrapper">
-          {Array(todoListCount)
-            .fill(0)
-            .map((value, index) => (
-              <ListComponent
-                ind={index}
-                handleDeleteTodo={handleDeleteTodo}
-                listItemArray={listItemArray}
-                IconArray={IconArray}
-              />
-            ))}
+        <NavBar />
+        <div className="mainContainerBody">
+          <SideBar />
+          <div className="wrapper">
+            {Array(todoListCount)
+              .fill(0)
+              .map((value, index) => (
+                <ListComponent
+                  ind={index}
+                  handleDeleteTodo={handleDeleteTodo}
+                  listItemArray={listItemArray}
+                  IconArray={IconArray}
+                />
+              ))}
+          </div>
         </div>
       </div>
     </div>
