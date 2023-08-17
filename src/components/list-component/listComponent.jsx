@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import IconTab from "../icon-tab";
-import ListItem from "../ListItem";
+import ListItem from "../list-item";
 import DeleteIcon from "../../../assests/icons/delete.png";
 import { useDispatch } from "react-redux";
 import { addItem } from "../../redux/actions/listActions";
