@@ -12,7 +12,7 @@ body {
     flex-wrap: $wrap;
 }
 
-.rm-outline-border{
+%rm-outline-border{
     outline: none;
     border: none;
 }
@@ -28,13 +28,13 @@ body {
     width: 100%;
     @include flexbox-style($direction:column);
     background-image: linear-gradient(to right, #CF9BC5, #AE80C7);
-    
+
     .addListButton {
         height: 50px;
         width: 50px;
         border-radius: 50%;
         @include flexbox-style;
-        @extend .rm-outline-border;
+        @extend %rm-outline-border;
         margin: 10px;
         cursor: pointer;
 
@@ -104,7 +104,7 @@ body {
     button {
         height: 25px;
         @include flexbox-style;
-        @extend .rm-outline-border;
+        @extend %rm-outline-border;
         cursor: pointer;
         position: absolute;
         right: 10px;
@@ -121,15 +121,15 @@ body {
     height: calc(100% - 50px);
     width: 100%;
     overflow: scroll;
-    @include flexbox-style($justify:flex-start,$align:flex-start,$direction:column);
-    input {
+    @include flexbox-style($justify:flex-start,$align:center,$direction:column);
+    > input {
         outline: none;
-        margin: 0 10px;
+        width:calc( 100% - 50px );
     }
 }
 
 .listItem {
-    // height: 50px;
+    height: 50px;
     width: 100%;
     @include flexbox-style(space-between);
 
@@ -153,7 +153,7 @@ body {
     button {
         height: 25px;
         @include flexbox-style;
-        @extend .rm-outline-border;
+        @extend %rm-outline-border;
         cursor: pointer;
         background-color: transparent;
 
@@ -195,7 +195,7 @@ body {
             right: 10px;
             top: 10px;
             border-radius: 10px;
-            @extend .rm-outline-border;
+            @extend %rm-outline-border;
             cursor: pointer;
         }
     }
@@ -208,7 +208,7 @@ body {
             width: 75%;
             margin: 0 10px;
             padding: 10px;
-            @extend .rm-outline-border;
+            @extend %rm-outline-border;
             border-radius: 15px;
         }
     }
