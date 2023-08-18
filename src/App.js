@@ -15,13 +15,17 @@ const App = () => {
   console.log(state);
 
   return (
-    <div className="containerWapper">
+    <div className="containerWrapper">
       <div className="mainContainer">
         <NavBar />
         <div className="mainContainerBody">
-          <TitleContainer />
+         
+          <SideBar />
           <div className="wrapper">
-            <SideBar />
+            <span className="titleWrapper">
+                 <TitleContainer />
+            </span>
+          
             {titleArray?.map((value, index) => (
               <ListComponent
                 ind={index}

@@ -5,6 +5,9 @@
     width: 100%;
     @include flexbox-style($justify:space-between);
     background-color:white;
+    position: sticky;
+    top: 0;
+
 }
 
 .left{

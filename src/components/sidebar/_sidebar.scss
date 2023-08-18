@@ -2,16 +2,16 @@
 
 .sideBarContainer{
     @include flexbox-style($justify:flex-start,$align:flex-start,$direction:column);
-    height: calc(100% - 55px);
+    height: calc(100vh - 55px);
     width: 50px;
     background-color: aquamarine;
     padding: 0 10px;    
     transition: ease-out 0.3ms;
-    position: absolute;
-    z-index: 2;
-    left: 0;
-    top: 0;
-    transform: translateY(55px);
+    // position: absolute;
+    // z-index: 2;
+    // left: 0;
+    // top: 0;
+    // transform: translateY(55px);
 }
 
 .hoverStyle{

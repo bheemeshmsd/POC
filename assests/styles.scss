@@ -7,8 +7,8 @@
 
 body {
     margin: 0;
-    overflow: scroll;
-    position: relative;
+    padding: 0;
+    overflow: hidden;
 }
 
 %rm-outline-border {
@@ -16,7 +16,7 @@ body {
     border: none;
 }
 
-.containerWapper {
+.containerWrapper {
     height: 100vh;
     width: 100vw;
     position: relative;
@@ -27,7 +27,7 @@ body {
     width: 100%;
     @include flexbox-style($justify:flex-start, $align:flex-start, $direction:column);
     background-image: linear-gradient(to right, #CF9BC5, #AE80C7);
-
+    position: relative;
     .addListButton {
         height: 50px;
         width: 50px;
@@ -46,20 +46,25 @@ body {
     .mainContainerBody{
         height: 100%;
         width: 100%;
-        @include flexbox-style($direction:column);
+        @include flexbox-style($justify:flex-start,$align:flex-start);
     }
 
 }
 
 .wrapper {
     width: 100%;
-    height: 100%;
-    @include flexbox-style($justify:flex-start, $align:flex-start, $wrap:wrap,$gap:10px);
-    min-height: 400px;
-    min-width: 300px;
-    padding: 10px 75px;
+    max-height: calc(100vh - 55px);
+    @include flexbox-style($justify:space-around, $align:flex-start, $wrap:wrap,$gap:10px);
     overflow: scroll;
+    position: relative;
     box-sizing: border-box;
+    padding: 10px;
+
+    .titleWrapper{
+        @include flexbox-style;
+        width: 100%;
+        height: 150px;
+    }
 }
 
 @media (max-width:500px) {
