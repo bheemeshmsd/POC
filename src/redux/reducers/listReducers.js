@@ -79,6 +79,14 @@ export const listReducer = (state = initialState, action) => {
         ],
       };
 
+    case UPDATE_TITLE:
+      return {
+        ...state,
+        title: state.title.map((value, index) =>
+          action.payload.index === index ? action.payload.updateValue : value
+        ),
+      };
+
     default:
       return state;
   }

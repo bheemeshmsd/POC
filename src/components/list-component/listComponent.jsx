@@ -8,10 +8,14 @@ import {
   addArray,
   deleteArray,
   deleteTitle,
+  updateTitle,
+  updateItem,
 } from "../../redux/actions/listActions";
 
 const ListComponent = ({ listItemArray, ind, title }) => {
   const [currentItem, setCurrentItem] = useState("");
+  const [edit, setEdit] = useState(false);
+  const [currentTitle, setCurrentTitle] = useState(title);
   const dispatch = useDispatch();
 
   const handleDeleteTodo = (index) => {
@@ -23,18 +27,41 @@ const ListComponent = ({ listItemArray, ind, title }) => {
     setCurrentItem((currentItem) => e.target.value);
   };
 
-  const handleKeyPress = (e, index) => {
+  const handleTitleInput = (e) => {
+    setCurrentTitle((currentTitle) => e.target.value);
+  };
+
+  const handleTitleKeyPress = (e) => {
+    if (e.key === "Enter" && currentTitle.length > 0) {
+      dispatch(updateTitle({ updateValue: currentTitle, index:ind }));
+      setEdit((edit) => false);
+    }
+  };
+
+  const handleKeyPress = (e) => {
     if (e.key === "Enter" && currentItem.length > 0) {
       dispatch(addArray());
-      dispatch(addItem({ value: currentItem, checkbox: false, id: index }));
+      dispatch(addItem({ value: currentItem, checkbox: false, id: ind }));
       setCurrentItem("");
     }
+  };
+
+  const handleEdit = () => {
+    setEdit((edit) => true);
   };
 
   return (
     <div className="listContainer">
       <div className="listNavBar">
-        <h2>{title}</h2>
+        {edit ? (
+          <input
+            value={currentTitle}
+            onChange={handleTitleInput}
+            onKeyDown={handleTitleKeyPress}
+          />
+        ) : (
+          <h2 onClick={handleEdit}>{title}</h2>
+        )}
         <button
           onClick={() => {
             handleDeleteTodo(ind);
@@ -50,7 +77,7 @@ const ListComponent = ({ listItemArray, ind, title }) => {
         <input
           onChange={handleListInput}
           value={currentItem}
-          onKeyDown={(e) => handleKeyPress(e, ind)}
+          onKeyDown={handleKeyPress}
           placeholder="Add a list..."
         ></input>
       </div>

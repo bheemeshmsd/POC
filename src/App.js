@@ -12,6 +12,7 @@ const App = () => {
   let listItemArray = state.list;
   let titleArray = state.title;
 
+
   console.log(state);
 
   return (
