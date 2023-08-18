@@ -34,7 +34,7 @@ const ListComponent = ({ listItemArray, ind, title }) => {
   const handleTitleKeyPress = (e) => {
     if (e.key === "Enter" && currentTitle.length > 0) {
       dispatch(updateTitle({ updateValue: currentTitle, index:ind }));
-      setEdit((edit) => false);
+      removeEdit();
     }
   };
 
@@ -46,13 +46,17 @@ const ListComponent = ({ listItemArray, ind, title }) => {
     }
   };
 
+  const removeEdit = ()=>{
+    setEdit((edit) => false);
+  }
+
   const handleEdit = () => {
     setEdit((edit) => true);
   };
 
   return (
     <div className="listContainer">
-      <div className="listNavBar">
+      <div className="listNavBar" >
         {edit ? (
           <input
             value={currentTitle}
@@ -70,7 +74,7 @@ const ListComponent = ({ listItemArray, ind, title }) => {
           <img src={DeleteIcon}></img>
         </button>
       </div>
-      <div className="listBody">
+      <div className="listBody" onClick={removeEdit}>
         {listItemArray[ind]?.map((value, index, arr) => (
           <ListItem content={value} index={index} toDoIndex={ind} array={arr} />
         ))}
