@@ -3,19 +3,29 @@ import IconTab from "../icon-tab";
 import ListItem from "../list-item";
 import DeleteIcon from "../../../assests/icons/delete.png";
 import { useDispatch } from "react-redux";
-import { addItem } from "../../redux/actions/listActions";
+import {
+  addItem,
+  addArray,
+  deleteArray,
+  deleteTitle,
+} from "../../redux/actions/listActions";
 
-const ListComponent = ({ IconArray, listItemArray, ind, handleDeleteTodo }) => {
-
+const ListComponent = ({ listItemArray, ind, title }) => {
   const [currentItem, setCurrentItem] = useState("");
   const dispatch = useDispatch();
+
+  const handleDeleteTodo = (index) => {
+    dispatch(deleteTitle({ index }));
+    dispatch(deleteArray({ index }));
+  };
 
   const handleListInput = (e) => {
     setCurrentItem((currentItem) => e.target.value);
   };
 
   const handleKeyPress = (e, index) => {
-    if (e.key === "Enter" && currentItem.length>0) {
+    if (e.key === "Enter" && currentItem.length > 0) {
+      dispatch(addArray());
       dispatch(addItem({ value: currentItem, checkbox: false, id: index }));
       setCurrentItem("");
     }
@@ -24,19 +34,14 @@ const ListComponent = ({ IconArray, listItemArray, ind, handleDeleteTodo }) => {
   return (
     <div className="listContainer">
       <div className="listNavBar">
-        {/* {IconArray?.map((value) => (
-          <IconTab imgUrl={value.src} />
-        ))} */}
-        {/* <h2>{`To Do List ${ind + 1}`}</h2> */}
-        {ind > 0 && (
-          <button
-            onClick={() => {
-              handleDeleteTodo(ind);
-            }}
-          >
-            <img src={DeleteIcon}></img>
-          </button>
-        )}
+        <h2>{title}</h2>
+        <button
+          onClick={() => {
+            handleDeleteTodo(ind);
+          }}
+        >
+          <img src={DeleteIcon}></img>
+        </button>
       </div>
       <div className="listBody">
         {listItemArray[ind]?.map((value, index, arr) => (

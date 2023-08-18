@@ -4,10 +4,14 @@ import {
   UPDATE_ITEM,
   ADD_ARRAY,
   DELETE_ARRAY,
+  ADD_TITLE,
+  DELETE_TITLE,
+  UPDATE_TITLE,
 } from "../actions/actionType";
 
 const initialState = {
-  list: [[]],
+  list: [],
+  title: [],
 };
 
 export const listReducer = (state = initialState, action) => {
@@ -18,6 +22,7 @@ export const listReducer = (state = initialState, action) => {
         list: [...state.list, []],
       };
     case ADD_ITEM:
+      console.log(action.payload);
       return {
         ...state,
         list: state.list.map((subArray, ind) =>
@@ -50,14 +55,30 @@ export const listReducer = (state = initialState, action) => {
         ),
       };
 
-    case DELETE_ARRAY :
-        return{
-            ...state,
-            list: [
-                ...state.list.slice(0, action.payload.index),
-                ...state.list.slice(action.payload.index + 1),
-              ]
-        }
+    case DELETE_ARRAY:
+      return {
+        ...state,
+        list: [
+          ...state.list.slice(0, action.payload.index),
+          ...state.list.slice(action.payload.index + 1),
+        ],
+      };
+
+    case ADD_TITLE:
+      return {
+        ...state,
+        title: [...state.title, action.payload],
+      };
+
+    case DELETE_TITLE:
+      return {
+        ...state,
+        title: [
+          ...state.title.slice(0, action.payload.index),
+          ...state.title.slice(action.payload.index + 1),
+        ],
+      };
+
     default:
       return state;
   }
