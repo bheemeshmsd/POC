@@ -26,7 +26,7 @@ body {
     height: 100%;
     width: 100%;
     @include flexbox-style($justify:flex-start, $align:flex-start, $direction:column);
-    background-image: linear-gradient(to right, #CF9BC5, #AE80C7);
+    // background-image: linear-gradient(to right, #CF9BC5, #AE80C7);
     position: relative;
     .addListButton {
         height: 50px;
@@ -46,6 +46,7 @@ body {
     .mainContainerBody{
         height: 100%;
         width: 100%;
+        position: relative;
         @include flexbox-style($justify:flex-start,$align:flex-start);
     }
 
@@ -53,7 +54,7 @@ body {
 
 .wrapper {
     width: 100%;
-    max-height: calc(100vh - 55px);
+    max-height: calc(100vh - 75px);
     @include flexbox-style($justify:space-around, $align:flex-start, $wrap:wrap,$gap:10px);
     overflow: scroll;
     position: relative;

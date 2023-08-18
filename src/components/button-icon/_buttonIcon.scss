@@ -1,17 +1,21 @@
 @import "../../../assests/mixins";
 
-.buttonContainer{
-    height: 50px;
-    width: 50px;
+.buttonContainer {
     @include flexbox-style;
     background: transparent;
     border: none;
     outline: none;
     cursor: pointer;
-    img{
+    border-radius: 50%;
+
+    img {
         height: 100%;
         width: 100%;
         object-fit: contain;
     }
-
 }
+
+.buttonContainer:hover {
+    background-color: rgba(60, 64, 67, .08) !important;
+}
+
