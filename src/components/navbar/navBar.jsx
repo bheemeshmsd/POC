@@ -7,7 +7,6 @@ import Grid from "../../../assests/icons/visualization.png";
 import Settings from "../../../assests/icons/settings.png";
 import Search from "../../../assests/icons/search.png";
 import Menu from "../../../assests/icons/menu.png";
-
 import ButtonIcon from "../button-icon";
 
 const NavBar = () => {

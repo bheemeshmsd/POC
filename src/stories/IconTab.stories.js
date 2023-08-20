@@ -1,6 +1,6 @@
 import IconTab from "../components/icon-tab";
 import listIcon from "../../assests/icons/list.png";
-import "../../assests/styles.scss";
+import '../../assests/styles.scss';
 import { action } from '@storybook/addon-actions';
 
 

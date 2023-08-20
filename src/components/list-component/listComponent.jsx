@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import IconTab from "../icon-tab";
 import ListItem from "../list-item";
 import DeleteIcon from "../../../assests/icons/delete.png";
 import { useDispatch } from "react-redux";
@@ -9,7 +8,6 @@ import {
   deleteArray,
   deleteTitle,
   updateTitle,
-  updateItem,
 } from "../../redux/actions/listActions";
 
 const ListComponent = ({ listItemArray, ind, title }) => {
@@ -75,8 +73,8 @@ const ListComponent = ({ listItemArray, ind, title }) => {
         </button>
       </div>
       <div className="listBody" onClick={removeEdit}>
-        {listItemArray[ind]?.map((value, index, arr) => (
-          <ListItem content={value} index={index} toDoIndex={ind} array={arr} />
+        {listItemArray?.map((value, index, arr) => (
+          <ListItem content={value} index={index} toDoIndex={ind} />
         ))}
         <input
           onChange={handleListInput}

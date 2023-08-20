@@ -30,7 +30,7 @@ const App = () => {
             {titleArray?.map((value, index) => (
               <ListComponent
                 ind={index}
-                listItemArray={listItemArray}
+                listItemArray={listItemArray[index]}
                 title={value}
               />
             ))}
