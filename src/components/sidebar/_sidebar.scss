@@ -1,21 +1,37 @@
 @import "../../../assests/mixins";
 
-.sideBarContainer{
-    @include flexbox-style($justify:flex-start,$align:flex-start,$direction:column);
+.sideBarContainer {
+    @include flexbox-style($justify:flex-start, $align:flex-start, $direction:column);
     height: calc(100vh - 65px);
     width: 50px;
-    background-color: aquamarine;
-    padding: 0 10px;    
     transition: ease-out 0.1s;
     position: absolute;
     z-index: 2;
     left: 0;
     top: 0;
+    padding-top: 10px;
+
+    span {
+        @include flexbox-style($justify:flex-start, $gap:10px);
+        width: 100%;
+        cursor: pointer;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding: 5px 0;
+        p{
+            margin: 0;
+        }
+    }
+
+    span:hover {
+        background-color: #FDEFC3;
+    }
+
 
     // transform: translateY(55px);
 }
 
-.hoverStyle{
-    width: 200px;
-    
+.hoverStyle {
+    width: 250px;
+    box-shadow: 0 16px 10px 0 rgba(0,0,0,.14), 0 11px 18px 0 rgba(0,0,0,.12), 0 13px 5px -1px rgba(0,0,0,.2);
 }
