@@ -20,7 +20,7 @@ const TitleContainer = () => {
   return (
     <div className="titleContainer">
       <input
-        placeholder="Enter title..."
+        placeholder="Enter a title..."
         value={title}
         onChange={handleTitle}
         onKeyDown={handleKeyPress}
