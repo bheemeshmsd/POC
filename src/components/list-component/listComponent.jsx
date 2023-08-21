@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ListItem from "../list-item";
 import DeleteIcon from "../../../assests/icons/delete.png";
 import { useDispatch } from "react-redux";
@@ -31,7 +31,7 @@ const ListComponent = ({ listItemArray, ind, title }) => {
 
   const handleTitleKeyPress = (e) => {
     if (e.key === "Enter" && currentTitle.length > 0) {
-      dispatch(updateTitle({ updateValue: currentTitle, index:ind }));
+      dispatch(updateTitle({ updateValue: currentTitle, index: ind }));
       removeEdit();
     }
   };
@@ -44,17 +44,18 @@ const ListComponent = ({ listItemArray, ind, title }) => {
     }
   };
 
-  const removeEdit = ()=>{
+  const removeEdit = () => {
     setEdit((edit) => false);
-  }
+  };
 
   const handleEdit = () => {
     setEdit((edit) => true);
   };
 
+ 
   return (
     <div className="listContainer">
-      <div className="listNavBar" >
+      <div className="listNavBar">
         {edit ? (
           <input
             value={currentTitle}

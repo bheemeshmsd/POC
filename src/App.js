@@ -1,32 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../assests/styles.scss";
 import { useSelector } from "react-redux";
 import ListComponent from "./components/list-component";
 import NavBar from "./components/navbar";
 import SideBar from "./components/sidebar";
 import TitleContainer from "./components/title-container/titleContainer";
+import useLocalStorage from "./hook/useLocalStorage";
 
 const App = () => {
   const state = useSelector((state) => state);
+  const [listState, setListState] = useLocalStorage("list", state);
 
-  let listItemArray = state.list;
-  let titleArray = state.title;
+  useEffect(() => {
+    setListState(state);
+  }, [state]);
 
-
-  console.log(state);
+  let listItemArray = listState.list;
+  let titleArray = listState.title;
 
   return (
     <div className="containerWrapper">
       <div className="mainContainer">
         <NavBar />
         <div className="mainContainerBody">
-         
           <SideBar />
           <div className="wrapper">
             <span className="titleWrapper">
-                 <TitleContainer />
+              <TitleContainer />
             </span>
-          
             {titleArray?.map((value, index) => (
               <ListComponent
                 ind={index}

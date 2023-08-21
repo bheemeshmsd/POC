@@ -9,9 +9,12 @@ import {
   UPDATE_TITLE,
 } from "../actions/actionType";
 
+
+const listState =  JSON.parse(localStorage.getItem('list'));
+
 const initialState = {
-  list: [],
-  title: [],
+  list: listState.list || [],
+  title: listState.title || [],
 };
 
 export const listReducer = (state = initialState, action) => {
