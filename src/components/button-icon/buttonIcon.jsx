@@ -1,14 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const ButtonIcon = ({ iconUrl, height, width, padding }) => {
+const ButtonIcon = ({ iconUrl, height, width, padding}) => {
   return (
     <button
       className="buttonContainer"
       style={{
         height: height || "40px",
         width: width || "40px",
-        padding: padding,
+        padding: padding
       }}
     >
       <img title="button-icon" src={iconUrl}></img>

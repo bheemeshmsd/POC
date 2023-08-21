@@ -60,12 +60,13 @@ body {
     overflow: scroll;
     position: relative;
     box-sizing: border-box;
-    padding: 10px 10px 10px 50px;
-
+    padding: 10px 10px 10px 75px;
+    margin-left: 50px;
     .titleWrapper {
-        @include flexbox-style;
+        padding-top: 15px;
+        @include flexbox-style($align:flex-start);
         width: 100%;
-        height: 150px;
+        height: 75px;
     }
 }
 

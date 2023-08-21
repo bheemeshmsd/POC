@@ -20,20 +20,20 @@ const SideBar = () => {
 
   return (
     <div className={hover ? "sideBarContainer hoverStyle" : "sideBarContainer"}>
-      <span onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-        <ButtonIcon iconUrl={Bulb} /> { hover && <p>Notes</p>}
+      <span onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
+        <ButtonIcon iconUrl={Bulb} /> {hover && <p>Notes</p>}
       </span>
       <span onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-        <ButtonIcon iconUrl={Bell} /> { hover && <p>Reminders</p>}
+        <ButtonIcon iconUrl={Bell} /> {hover && <p>Reminders</p>}
       </span>
       <span onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-        <ButtonIcon iconUrl={Pencil} /> { hover && <p>Edit Labels</p>}
+        <ButtonIcon iconUrl={Pencil} /> {hover && <p>Edit Labels</p>}
       </span>
       <span onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-        <ButtonIcon iconUrl={Archive} /> { hover && <p>Archive</p>}
+        <ButtonIcon iconUrl={Archive} /> {hover && <p>Archive</p>}
       </span>
       <span onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-        <ButtonIcon iconUrl={Delete} /> { hover && <p>Bin</p>}
+        <ButtonIcon iconUrl={Delete} /> {hover && <p>Bin</p>}
       </span>
     </div>
   );

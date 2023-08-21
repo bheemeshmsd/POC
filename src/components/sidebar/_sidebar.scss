@@ -1,9 +1,10 @@
 @import "../../../assests/mixins";
 
 .sideBarContainer {
+
     @include flexbox-style($justify:flex-start, $align:flex-start, $direction:column);
     height: calc(100vh - 65px);
-    width: 50px;
+    width: 75px;
     transition: ease-out 0.1s;
     position: absolute;
     z-index: 2;
@@ -13,15 +14,19 @@
     background-color: white;
 
     span {
+
+        box-sizing: border-box;
         @include flexbox-style($justify:flex-start, $gap:10px);
         width: 100%;
         cursor: pointer;
         border-top-right-radius: 20px;
         border-bottom-right-radius: 20px;
-        padding: 5px 0;
+        padding: 5px 0 0 18px;
         p{
             margin: 0;
         }
+
+        
     }
 
     span:hover {
