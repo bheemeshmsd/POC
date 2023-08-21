@@ -13,8 +13,8 @@ import {
 const listState =  JSON.parse(localStorage.getItem('list'));
 
 const initialState = {
-  list: listState.list || [],
-  title: listState.title || [],
+  list: listState?.list || [],
+  title: listState?.title || [],
 };
 
 export const listReducer = (state = initialState, action) => {
