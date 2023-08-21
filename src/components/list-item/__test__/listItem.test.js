@@ -41,12 +41,17 @@ describe("List Item", function () {
   it("should be able to apply dynamic css on checkbox value been filled", async () => {
     render(<MockElement />);
     const checkBoxElement = screen.getByTitle("checkbox");
-    let textElement = screen.getByTitle("listValue");
+    let textElement = screen.getByText(/Test1/i);
     expect(checkBoxElement.checked).toBe(false);
     expect(textElement).not.toHaveClass("strike");
     fireEvent.click(checkBoxElement);
-    expect(checkBoxElement.checked).toBe(true);
-    // expect(textElement).toHaveClass("strike");
+    
+    await waitFor (()=>{
+        expect(checkBoxElement.checked).toBe(true);
+        textElement = screen.getByText(/Test1/i);
+        expect(textElement).toHaveClass("strike");
+    })
+    
   });
 
 });
