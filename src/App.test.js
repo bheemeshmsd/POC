@@ -1,7 +1,13 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  screen.debug();
+describe("App Component", function () {
+  it("should have hello world message", function () {
+    let { getByText } = render(<App />);
+    expect(getByText("Hello world React!")).toMatchInlineSnapshot(`
+      <h1>
+        Hello world React!
+      </h1>
+    `);
+  });
 });

@@ -1,49 +1,48 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
 
 module.exports = {
-  entry: './index.js',
-  mode: 'development',
+  entry: "./index.js",
+  mode: "development",
   output: {
-    path: path.resolve(__dirname, './dist'),
-    filename: 'index_bundle.js',
+    path: path.resolve(__dirname, "./dist"),
+    filename: "index_bundle.js",
   },
-  target: 'web',
+  target: "web",
   devServer: {
-    port: '5000',
+    port: "5000",
     static: {
-      directory: path.join(__dirname, 'public')
-},
+      directory: path.join(__dirname, "public"),
+    },
     open: true,
     hot: true,
     liveReload: true,
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json'],
+    extensions: [".js", ".jsx", ".json"],
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/, 
-        exclude: /node_modules/, 
-        use: 'babel-loader', 
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: "babel-loader",
       },
       {
         test: /\.scss$/, // Match .scss files
-        use: ['style-loader', 'css-loader', 'sass-loader'], // Use these loaders in sequence
+        use: ["style-loader", "css-loader", "sass-loader"], // Use these loaders in sequence
       },
       {
         test: /\.(jpg|png)$/,
         use: {
-          loader: 'url-loader',
+          loader: "url-loader",
         },
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'public', 'index.html')
-    })
+      template: path.join(__dirname, "public", "index.html"),
+    }),
   ],
-  
 };
