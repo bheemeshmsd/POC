@@ -7,15 +7,15 @@
     background-color: white;
     position: sticky;
     top: 0;
-    border-bottom: 1px solid #5f6368;
+    border-bottom: 1px solid #e0e6ed;
 
 }
 
 .left {
-    width: 250px;
+    width: 300px;
     height: 100%;
-    @include flexbox-style($justify:space-around);
-
+    margin: 0 20px 0 20px;
+    @include flexbox-style($justify:flex-start);
     .iconTab {
         @include flexbox-style;
 
@@ -32,7 +32,8 @@
 .middle {
     width: 100%;
     height: 100%;
-    @include flexbox-style;
+    @include flexbox-style($justify:flex-start);
+
     
 
     .inputWrapper {
@@ -40,9 +41,8 @@
         width: fit-content;
         height: 50px;
         background-color: #F0F3F4;
-        padding-right: 25px;
+        padding: 0 20px;
         border-radius: 10px;
-        // box-shadow: inset 1px 1px 0 rgba(0,0,0,.1), inset 0 -1px 0 rgba(0,0,0,.07);
         button{
             background-color: transparent;
         }
@@ -51,7 +51,7 @@
             flex: 1 1 100%;
             height: 100%;
             min-width: 160px;
-            width: 600px;
+            width: 500px;
             border-radius: 5px;
             border: none;
             outline: none;

@@ -10,6 +10,7 @@
     left: 0;
     top: 0;
     padding-top: 10px;
+    background-color: white;
 
     span {
         @include flexbox-style($justify:flex-start, $gap:10px);
