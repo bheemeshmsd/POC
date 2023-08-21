@@ -1,13 +1,11 @@
-import { render, screen } from '@testing-library/react';
-import ButtonIcon from '../buttonIcon';
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import ButtonIcon from "../buttonIcon";
 
-// describe("App Component", function () {
-//   it("should have hello world message", function () {
-//     let { getByText } = render(<App />);
-//     expect(getByText("Hello world React!")).toMatchInlineSnapshot(`
-//       <h1>
-//         Hello world React!
-//       </h1>
-//     `);
-//   });
-// });
+test("renders the image specified by iconUrl", () => {
+  const testIconUrl = "test.png";
+  render(<ButtonIcon iconUrl={testIconUrl} />);
+  const imgElement = screen.queryByTitle("button-icon");
+  expect(imgElement).toBeInTheDocument();
+  expect(imgElement).toHaveAttribute("src", testIconUrl);
+});

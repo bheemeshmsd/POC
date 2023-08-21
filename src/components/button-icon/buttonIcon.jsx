@@ -6,7 +6,7 @@ const ButtonIcon = ({ iconUrl, height, width ,padding}) => {
       className="buttonContainer"
       style={{ height: height || "40px", width: width || "40px", padding: padding }}
     >
-      <img src={iconUrl}></img>
+      <img title="button-icon" src={iconUrl}></img>
     </button>
   );
 };

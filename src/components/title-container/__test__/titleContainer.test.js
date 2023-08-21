@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent, screen, waitFor } from "@testing-library/react";
+import { render, fireEvent, screen } from "@testing-library/react";
 import TitleContainer from "../titleContainer";
 import { Provider } from "react-redux";
 import store from "../../../redux/store.js";
