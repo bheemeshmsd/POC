@@ -77,12 +77,12 @@ const ListComponent = ({ listItemArray, ind, title }) => {
         {listItemArray?.map((value, index, arr) => (
           <ListItem content={value} index={index} toDoIndex={ind} />
         ))}
-        <input
+        <textarea
           onChange={handleListInput}
           value={currentItem}
           onKeyDown={handleKeyPress}
           placeholder="Add a list..."
-        ></input>
+        ></textarea>
       </div>
     </div>
   );
