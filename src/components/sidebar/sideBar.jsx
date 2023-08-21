@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ButtonIcon from "../button-icon";
+import ButtonIcon from "../button-icon/buttonIcon";
 import Remove from "../../../assests/icons/remove.png";
 import Archive from "../../../assests/icons/download-file.png";
 import Bulb from "../../../assests/icons/light-bulb.png";
@@ -20,8 +20,9 @@ const SideBar = () => {
 
   return (
     <div className={hover ? "sideBarContainer hoverStyle" : "sideBarContainer"}>
-      <span onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
-        <ButtonIcon iconUrl={Bulb} /> {hover && <p>Notes</p>}
+      <span onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <ButtonIcon backgroundColor={hover ? "" : "#FDEFC3"} iconUrl={Bulb} />{" "}
+        {hover && <p>Notes</p>}
       </span>
       <span onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         <ButtonIcon iconUrl={Bell} /> {hover && <p>Reminders</p>}
