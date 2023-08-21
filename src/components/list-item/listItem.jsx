@@ -1,11 +1,10 @@
 import React from "react";
 import { updateItem, deleteItem } from "../../redux/actions/listActions";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import deleteIcon from "../../../assests/icons/remove.png";
 import PropTypes from "prop-types";
 
 const ListItem = ({ content, index, toDoIndex }) => {
-  let list = useSelector((state) => state.list);
   const dispatch = useDispatch();
 
   const handleCheckBox = (e) => {
@@ -25,17 +24,14 @@ const ListItem = ({ content, index, toDoIndex }) => {
   // const randomId = generateRandomId();
 
   return (
-    <div className="listItem">
+    <div title="list-container" className="listItem">
       <input
         type="checkbox"
         onChange={handleCheckBox}
         checked={content.checkbox}
+        title="checkbox"
       ></input>
-      {content?.checkbox ? (
-        <h3 className="strike">{content.value}</h3>
-      ) : (
-        <h3>{content.value}</h3>
-      )}
+      <h3 title="listValue" className={content?.checkbox ? "strike" : ""}>{content.value}</h3>
       <button onClick={handleDelete}>
         <img src={deleteIcon}></img>
       </button>
