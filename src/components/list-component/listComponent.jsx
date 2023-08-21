@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 import ListItem from "../list-item";
 import DeleteIcon from "../../../assests/icons/delete.png";
 import { useDispatch } from "react-redux";
@@ -52,7 +53,6 @@ const ListComponent = ({ listItemArray, ind, title }) => {
     setEdit((edit) => true);
   };
 
- 
   return (
     <div className="listContainer">
       <div className="listNavBar">
@@ -86,6 +86,12 @@ const ListComponent = ({ listItemArray, ind, title }) => {
       </div>
     </div>
   );
+};
+
+ListComponent.prototype = {
+  listItemArray: PropTypes.array,
+  ind: PropTypes.number,
+  title: PropTypes.string,
 };
 
 export default ListComponent;
