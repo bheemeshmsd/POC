@@ -37,8 +37,8 @@ const ListComponent = ({ listItemArray, id, title }) => {
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter" && currentItem.length > 0) {
-      const listId  = v4();
-      dispatch(addItem({ value: currentItem, checkBox: false ,id, listId}));
+      const listId = v4();
+      dispatch(addItem({ value: currentItem, checkBox: false, id, listId }));
       setCurrentItem("");
     }
   };
@@ -52,7 +52,7 @@ const ListComponent = ({ listItemArray, id, title }) => {
   };
 
   return (
-    <div className="listContainer" >
+    <div className="listContainer">
       <div className="listNavBar">
         {edit ? (
           <input

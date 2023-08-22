@@ -26,11 +26,11 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: "babel-loader",
+        use: ["babel-loader"],
       },
       {
-        test: /\.scss$/, // Match .scss files
-        use: ["style-loader", "css-loader", "sass-loader"], // Use these loaders in sequence
+        test: /\.scss$/,
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
         test: /\.(jpg|png)$/,
