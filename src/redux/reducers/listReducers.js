@@ -59,21 +59,28 @@ export const listReducer = (state = initialState, action) => {
     case UPDATE_ITEM:
       return {
         ...state,
-        title: state.title.map((arrValue) =>
-          arrValue.id === action.payload.id
-            ? {
-                ...arrValue,
-                listValue: arrValue.listValue.map((value) =>
-                  value.listId === action.payload.listId
-                    ? {
-                        ...value,
-                        checkBox: action.payload.checked,
-                      }
-                    : value
-                ),
-              }
-            : arrValue
-        ),
+        title: state.title.map((arrValue) => {
+          if (arrValue.id === action.payload.id) {
+            const updatedList = arrValue.listValue.map((value) =>
+              value.listId === action.payload.listId
+                ? {
+                    ...value,
+                    checkBox: action.payload.checked,
+                  }
+                : value
+            );
+            console.log(updatedList);
+            return {
+              ...updatedList,
+              listValue: [
+                ...updatedList.filter((value) => !value.checkBox),
+                ...updatedList.filter((value) => value.checkBox),
+              ],
+            };
+          } else {
+            return arrValue;
+          }
+        }),
       };
 
     case DELETE_ARRAY:

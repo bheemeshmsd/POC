@@ -56,7 +56,7 @@ const ListComponent = ({ listItemArray, id, title }) => {
   };
 
   return (
-    <div className="listContainer">
+    <div className="listContainer" >
       <div className="listNavBar">
         {edit ? (
           <input
