@@ -11,15 +11,15 @@ import {
   updateTitle,
 } from "../../redux/actions/listActions";
 
-const ListComponent = ({ listItemArray, ind, title }) => {
+const ListComponent = ({ listItemArray, id, title }) => {
   const [currentItem, setCurrentItem] = useState("");
   const [edit, setEdit] = useState(false);
   const [currentTitle, setCurrentTitle] = useState(title);
   const dispatch = useDispatch();
 
-  const handleDeleteTodo = (index) => {
-    dispatch(deleteTitle({ index }));
-    dispatch(deleteArray({ index }));
+  const handleDeleteTodo = (id) => {
+    dispatch(deleteTitle({ id }));
+    // dispatch(deleteArray({ index }));
   };
 
   const handleListInput = (e) => {
@@ -32,7 +32,7 @@ const ListComponent = ({ listItemArray, ind, title }) => {
 
   const handleTitleKeyPress = (e) => {
     if (e.key === "Enter" && currentTitle.length > 0) {
-      dispatch(updateTitle({ updateValue: currentTitle, index: ind }));
+      dispatch(updateTitle({ updateValue: currentTitle, id }));
       removeEdit();
     }
   };
@@ -40,7 +40,7 @@ const ListComponent = ({ listItemArray, ind, title }) => {
   const handleKeyPress = (e) => {
     if (e.key === "Enter" && currentItem.length > 0) {
       dispatch(addArray());
-      dispatch(addItem({ value: currentItem, checkbox: false, id: ind }));
+      dispatch(addItem({ value: currentItem, checkbox: false, id: id }));
       setCurrentItem("");
     }
   };
@@ -67,7 +67,7 @@ const ListComponent = ({ listItemArray, ind, title }) => {
         )}
         <button
           onClick={() => {
-            handleDeleteTodo(ind);
+            handleDeleteTodo(id);
           }}
         >
           <img src={DeleteIcon}></img>
@@ -75,7 +75,7 @@ const ListComponent = ({ listItemArray, ind, title }) => {
       </div>
       <div className="listBody" onClick={removeEdit}>
         {listItemArray?.map((value, index, arr) => (
-          <ListItem content={value} index={index} toDoIndex={ind} />
+          <ListItem content={value} index={index} toDoIndex={id} />
         ))}
         <textarea
           onChange={handleListInput}
@@ -90,7 +90,7 @@ const ListComponent = ({ listItemArray, ind, title }) => {
 
 ListComponent.prototype = {
   listItemArray: PropTypes.array,
-  ind: PropTypes.number,
+  id: PropTypes.number,
   title: PropTypes.string,
 };
 

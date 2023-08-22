@@ -9,8 +9,7 @@ import {
   UPDATE_TITLE,
 } from "../actions/actionType";
 
-
-const listState =  JSON.parse(localStorage.getItem('list'));
+const listState = JSON.parse(localStorage.getItem("list"));
 
 const initialState = {
   list: listState?.list || [],
@@ -76,17 +75,17 @@ export const listReducer = (state = initialState, action) => {
     case DELETE_TITLE:
       return {
         ...state,
-        title: [
-          ...state.title.slice(0, action.payload.index),
-          ...state.title.slice(action.payload.index + 1),
-        ],
+        title: state.title.filter((value) => value.id !== action.payload.id),
       };
 
     case UPDATE_TITLE:
+      console.log(action.payload)
       return {
         ...state,
-        title: state.title.map((value, index) =>
-          action.payload.index === index ? action.payload.updateValue : value
+        title: state.title.map((value) =>
+          action.payload.id === value.id
+            ? { ...value, title: action.payload.updateValue }
+            : value
         ),
       };
 

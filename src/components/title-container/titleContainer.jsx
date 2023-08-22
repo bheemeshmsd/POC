@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTitle } from "../../redux/actions/listActions";
+import { v4 } from "uuid";
 
 const TitleContainer = () => {
   const dispatch = useDispatch();
@@ -12,7 +13,8 @@ const TitleContainer = () => {
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter" && title.length>0) {
-      dispatch(addTitle(title));
+      const id = v4();
+      dispatch(addTitle({title,id,value:[]}));
       setTitle("");
     }
   };

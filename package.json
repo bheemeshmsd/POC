@@ -54,6 +54,7 @@
     "node-sass": "^9.0.0",
     "prop-types": "^15.8.1",
     "react-redux": "^8.1.2",
-    "redux": "^4.2.1"
+    "redux": "^4.2.1",
+    "uuid": "^9.0.0"
   }
 }

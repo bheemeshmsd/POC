@@ -30,9 +30,9 @@ const App = () => {
             </span>
             {titleArray?.map((value, index) => (
               <ListComponent
-                ind={index}
-                listItemArray={listItemArray[index]}
-                title={value}
+                id={value.id}
+                listItemArray={value.value}
+                title={value.title}
               />
             ))}
           </div>
