@@ -40,7 +40,7 @@ const ListComponent = ({ listItemArray, id, title }) => {
   const handleKeyPress = (e) => {
     if (e.key === "Enter" && currentItem.length > 0) {
       dispatch(addArray());
-      dispatch(addItem({ value: currentItem, checkbox: false, id: id }));
+      dispatch(addItem({ value: currentItem, checkbox: false ,id}));
       setCurrentItem("");
     }
   };

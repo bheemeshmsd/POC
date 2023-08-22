@@ -27,8 +27,19 @@ export const listReducer = (state = initialState, action) => {
       console.log(action.payload);
       return {
         ...state,
-        list: state.list.map((subArray, ind) =>
-          ind === action.payload.id ? [...subArray, action.payload] : subArray
+        title: state.title.map((arrvalue) =>
+          arrvalue.id === action.payload.id
+            ? {
+                ...arrvalue,
+                listValue: [
+                  ...arrvalue.listValue,
+                  {
+                    value: action.payload.value,
+                    checkbox: action.payload.checkbox,
+                  },
+                ],
+              }
+            : arrvalue
         ),
       };
     case DELETE_ITEM:
@@ -79,7 +90,7 @@ export const listReducer = (state = initialState, action) => {
       };
 
     case UPDATE_TITLE:
-      console.log(action.payload)
+      console.log(action.payload);
       return {
         ...state,
         title: state.title.map((value) =>

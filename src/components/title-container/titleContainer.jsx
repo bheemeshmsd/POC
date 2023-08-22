@@ -14,7 +14,7 @@ const TitleContainer = () => {
   const handleKeyPress = (e) => {
     if (e.key === "Enter" && title.length>0) {
       const id = v4();
-      dispatch(addTitle({title,id,value:[]}));
+      dispatch(addTitle({title,id,listValue:[]}));
       setTitle("");
     }
   };

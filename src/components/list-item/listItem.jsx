@@ -11,20 +11,15 @@ const ListItem = ({ content, index, toDoIndex }) => {
     dispatch(updateItem({ index, checked: e.target.checked, toDoIndex }));
   };
 
-  // const generateRandomId = () => {
-  //     const timestamp = new Date().getTime();
-  //     const random = Math.random().toString(36).substring(2);
-  //     return `${timestamp}_${random}`;
-  // }
 
   const handleDelete = () => {
     dispatch(deleteItem({ index, toDoIndex }));
   };
 
-  // const randomId = generateRandomId();
+  
 
   return (
-    <div title="list-container" className="listItem">
+    <div title="list-container" className="listItem" key={toDoIndex}>
       <input
         type="checkbox"
         onChange={handleCheckBox}

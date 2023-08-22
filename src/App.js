@@ -28,10 +28,10 @@ const App = () => {
             <span className="titleWrapper">
               <TitleContainer />
             </span>
-            {titleArray?.map((value, index) => (
+            {titleArray?.map((value) => (
               <ListComponent
                 id={value.id}
-                listItemArray={value.value}
+                listItemArray={value.listValue}
                 title={value.title}
               />
             ))}
