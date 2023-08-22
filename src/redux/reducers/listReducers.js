@@ -71,7 +71,7 @@ export const listReducer = (state = initialState, action) => {
             );
             console.log(updatedList);
             return {
-              ...updatedList,
+              ...arrValue,
               listValue: [
                 ...updatedList.filter((value) => !value.checkBox),
                 ...updatedList.filter((value) => value.checkBox),

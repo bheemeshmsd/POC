@@ -15,7 +15,6 @@ const App = () => {
     setListState(state);
   }, [state]);
 
-  let listItemArray = listState.list;
   let titleArray = listState.title;
 
   return (
