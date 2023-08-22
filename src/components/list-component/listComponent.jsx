@@ -5,8 +5,6 @@ import DeleteIcon from "../../../assests/icons/delete.png";
 import { useDispatch } from "react-redux";
 import {
   addItem,
-  addArray,
-  deleteArray,
   deleteTitle,
   updateTitle,
 } from "../../redux/actions/listActions";
@@ -20,7 +18,6 @@ const ListComponent = ({ listItemArray, id, title }) => {
 
   const handleDeleteTodo = (id) => {
     dispatch(deleteTitle({ id }));
-    // dispatch(deleteArray({ index }));
   };
 
   const handleListInput = (e) => {
@@ -40,7 +37,6 @@ const ListComponent = ({ listItemArray, id, title }) => {
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter" && currentItem.length > 0) {
-      // dispatch(addArray());
       const listId  = v4();
       dispatch(addItem({ value: currentItem, checkBox: false ,id, listId}));
       setCurrentItem("");

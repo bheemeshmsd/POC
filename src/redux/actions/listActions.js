@@ -2,8 +2,6 @@ import {
   ADD_ITEM,
   DELETE_ITEM,
   UPDATE_ITEM,
-  ADD_ARRAY,
-  DELETE_ARRAY,
   ADD_TITLE,
   DELETE_TITLE,
   UPDATE_TITLE,
@@ -16,11 +14,6 @@ export const addItem = (payload) => {
   };
 };
 
-export const addArray = () => {
-  return {
-    type: ADD_ARRAY,
-  };
-};
 
 export const deleteItem = (payload) => {
   return {
@@ -29,12 +22,7 @@ export const deleteItem = (payload) => {
   };
 };
 
-export const deleteArray = (payload) => {
-  return {
-    type: DELETE_ARRAY,
-    payload,
-  };
-};
+
 
 export const updateItem = (payload) => {
   return {

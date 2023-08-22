@@ -2,8 +2,6 @@ import {
   ADD_ITEM,
   DELETE_ITEM,
   UPDATE_ITEM,
-  ADD_ARRAY,
-  DELETE_ARRAY,
   ADD_TITLE,
   DELETE_TITLE,
   UPDATE_TITLE,
@@ -12,21 +10,15 @@ import {
 const listState = JSON.parse(localStorage.getItem("list"));
 
 const initialState = {
-  list: listState?.list || [],
-  title: listState?.title || [],
+  titles: listState?.titles || [],
 };
 
 export const listReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_ARRAY:
-      return {
-        ...state,
-        list: [...state.list, []],
-      };
     case ADD_ITEM:
       return {
         ...state,
-        title: state.title.map((arrValue) =>
+        titles: state.titles.map((arrValue) =>
           arrValue.id === action.payload.id
             ? {
                 ...arrValue,
@@ -45,7 +37,7 @@ export const listReducer = (state = initialState, action) => {
     case DELETE_ITEM:
       return {
         ...state,
-        title: state.title.map((arrValue) =>
+        titles: state.titles.map((arrValue) =>
           arrValue.id === action.payload.id
             ? {
                 ...arrValue,
@@ -53,13 +45,13 @@ export const listReducer = (state = initialState, action) => {
                   (value) => value.listId !== action.payload.listId
                 ),
               }
-            : subArray
+            : arrValue
         ),
       };
     case UPDATE_ITEM:
       return {
         ...state,
-        title: state.title.map((arrValue) => {
+        titles: state.titles.map((arrValue) => {
           if (arrValue.id === action.payload.id) {
             const updatedList = arrValue.listValue.map((value) =>
               value.listId === action.payload.listId
@@ -69,7 +61,6 @@ export const listReducer = (state = initialState, action) => {
                   }
                 : value
             );
-            console.log(updatedList);
             return {
               ...arrValue,
               listValue: [
@@ -82,32 +73,21 @@ export const listReducer = (state = initialState, action) => {
           }
         }),
       };
-
-    case DELETE_ARRAY:
-      return {
-        ...state,
-        list: [
-          ...state.list.slice(0, action.payload.index),
-          ...state.list.slice(action.payload.index + 1),
-        ],
-      };
-
     case ADD_TITLE:
       return {
         ...state,
-        title: [...state.title, action.payload],
+        titles: [...state.titles, action.payload],
       };
-
     case DELETE_TITLE:
       return {
         ...state,
-        title: state.title.filter((value) => value.id !== action.payload.id),
+        titles: state.titles.filter((value) => value.id !== action.payload.id),
       };
-
     case UPDATE_TITLE:
+      console.log(action.payload);
       return {
         ...state,
-        title: state.title.map((value) =>
+        titles: state.titles.map((value) =>
           action.payload.id === value.id
             ? { ...value, title: action.payload.updateValue }
             : value

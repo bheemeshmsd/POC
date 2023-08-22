@@ -9,13 +9,13 @@ import useLocalStorage from "./hook/useLocalStorage";
 
 const App = () => {
   const state = useSelector((state) => state);
-  const [listState, setListState] = useLocalStorage("list", state);
+  const [listState, setListState] = useLocalStorage("titles", state);
 
   useEffect(() => {
     setListState(state);
   }, [state]);
 
-  let titleArray = listState.title;
+  let titleArray = listState.titles;
 
   return (
     <div className="containerWrapper">
