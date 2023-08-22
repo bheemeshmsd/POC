@@ -10,6 +10,7 @@ import {
   deleteTitle,
   updateTitle,
 } from "../../redux/actions/listActions";
+import { v4 } from "uuid";
 
 const ListComponent = ({ listItemArray, id, title }) => {
   const [currentItem, setCurrentItem] = useState("");
@@ -39,8 +40,9 @@ const ListComponent = ({ listItemArray, id, title }) => {
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter" && currentItem.length > 0) {
-      dispatch(addArray());
-      dispatch(addItem({ value: currentItem, checkbox: false ,id}));
+      // dispatch(addArray());
+      const listId  = v4();
+      dispatch(addItem({ value: currentItem, checkBox: false ,id, listId}));
       setCurrentItem("");
     }
   };
@@ -74,8 +76,8 @@ const ListComponent = ({ listItemArray, id, title }) => {
         </button>
       </div>
       <div className="listBody" onClick={removeEdit}>
-        {listItemArray?.map((value, index, arr) => (
-          <ListItem content={value} index={index} toDoIndex={id} />
+        {listItemArray?.map((value) => (
+          <ListItem content={value} toDoIndex={id} />
         ))}
         <textarea
           onChange={handleListInput}

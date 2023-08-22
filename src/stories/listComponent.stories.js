@@ -15,8 +15,8 @@ export default {
   ],
   args: {
     listItemArray: [
-      { value: "Test1", checkbox: false },
-      { value: "Test2", checkbox: false },
+      { value: "Test1", checkBox: false },
+      { value: "Test2", checkBox: false },
     ],
     ind: 0,
     title: "Test Title",

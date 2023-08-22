@@ -24,47 +24,55 @@ export const listReducer = (state = initialState, action) => {
         list: [...state.list, []],
       };
     case ADD_ITEM:
-      console.log(action.payload);
       return {
         ...state,
-        title: state.title.map((arrvalue) =>
-          arrvalue.id === action.payload.id
+        title: state.title.map((arrValue) =>
+          arrValue.id === action.payload.id
             ? {
-                ...arrvalue,
+                ...arrValue,
                 listValue: [
-                  ...arrvalue.listValue,
+                  ...arrValue.listValue,
                   {
                     value: action.payload.value,
-                    checkbox: action.payload.checkbox,
+                    checkBox: action.payload.checkBox,
+                    listId: action.payload.listId,
                   },
                 ],
               }
-            : arrvalue
+            : arrValue
         ),
       };
     case DELETE_ITEM:
       return {
         ...state,
-        list: state.list.map((subArray, ind) =>
-          ind === action.payload.toDoIndex
-            ? [
-                ...subArray.slice(0, action.payload.index),
-                ...subArray.slice(action.payload.index + 1),
-              ]
+        title: state.title.map((arrValue) =>
+          arrValue.id === action.payload.id
+            ? {
+                ...arrValue,
+                listValue: arrValue.listValue.filter(
+                  (value) => value.listId !== action.payload.listId
+                ),
+              }
             : subArray
         ),
       };
     case UPDATE_ITEM:
       return {
         ...state,
-        list: state.list.map((value, ind) =>
-          ind === action.payload.toDoIndex
-            ? value.map((item, index) =>
-                index === action.payload.index
-                  ? { ...item, checkbox: action.payload.checked }
-                  : item
-              )
-            : value
+        title: state.title.map((arrValue) =>
+          arrValue.id === action.payload.id
+            ? {
+                ...arrValue,
+                listValue: arrValue.listValue.map((value) =>
+                  value.listId === action.payload.listId
+                    ? {
+                        ...value,
+                        checkBox: action.payload.checked,
+                      }
+                    : value
+                ),
+              }
+            : arrValue
         ),
       };
 
@@ -90,7 +98,6 @@ export const listReducer = (state = initialState, action) => {
       };
 
     case UPDATE_TITLE:
-      console.log(action.payload);
       return {
         ...state,
         title: state.title.map((value) =>

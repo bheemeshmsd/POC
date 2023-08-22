@@ -4,16 +4,16 @@ import { useDispatch } from "react-redux";
 import deleteIcon from "../../../assests/icons/remove.png";
 import PropTypes from "prop-types";
 
-const ListItem = ({ content, index, toDoIndex }) => {
+const ListItem = ({ content, toDoIndex }) => {
   const dispatch = useDispatch();
 
   const handleCheckBox = (e) => {
-    dispatch(updateItem({ index, checked: e.target.checked, toDoIndex }));
+    dispatch(updateItem({ listId:content.listId, checked: e.target.checked, id:toDoIndex }));
   };
 
 
   const handleDelete = () => {
-    dispatch(deleteItem({ index, toDoIndex }));
+    dispatch(deleteItem({id : toDoIndex,listId: content.listId }));
   };
 
   
@@ -21,12 +21,12 @@ const ListItem = ({ content, index, toDoIndex }) => {
   return (
     <div title="list-container" className="listItem" key={toDoIndex}>
       <input
-        type="checkbox"
+        type="checkBox"
         onChange={handleCheckBox}
-        checked={content.checkbox}
-        title="checkbox"
+        checked={content.checkBox}
+        title="checkBox"
       ></input>
-      <h3 title="listValue" className={content?.checkbox ? "strike" : ""}>{content.value}</h3>
+      <h3 title="listValue" className={content?.checkBox ? "strike" : ""}>{content.value}</h3>
       <button onClick={handleDelete}>
         <img src={deleteIcon}></img>
       </button>
