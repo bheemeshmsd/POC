@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../assests/styles.scss";
 import { useSelector } from "react-redux";
 import ListComponent from "./components/list-component";
@@ -10,24 +10,35 @@ import useLocalStorage from "./hook/useLocalStorage";
 const App = () => {
   const state = useSelector((state) => state);
   const [listState, setListState] = useLocalStorage("titles", state);
+  const [searchValue, setSearchValue] = useState("");
+  const [titlesArray, setTitleArray] = useState([...listState.titles]);
 
   useEffect(() => {
     setListState(state);
   }, [state]);
 
-  let titleArray = listState.titles;
+  useEffect(() => {
+    setTitleArray((titlesArray) => [...listState.titles]);
+  }, [listState]);
+
+  useEffect(() => {
+    const filterArray = listState.titles.filter((arrayValue) =>
+      arrayValue.title.toLowerCase().includes(searchValue.toLowerCase())
+    );
+    setTitleArray((titlesArray) => [...filterArray]);
+  }, [searchValue]);
 
   return (
     <div className="containerWrapper">
       <div className="mainContainer">
-        <NavBar />
+        <NavBar searchValue={searchValue} setSearchValue={setSearchValue} />
         <div className="mainContainerBody">
           <SideBar />
           <div className="wrapper">
             <span className="titleWrapper">
               <TitleContainer />
             </span>
-            {titleArray?.map((value) => (
+            {titlesArray?.map((value) => (
               <ListComponent
                 id={value.id}
                 listItemArray={value.listValue}

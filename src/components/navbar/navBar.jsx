@@ -8,8 +8,15 @@ import Settings from "../../../assests/icons/settings.png";
 import Search from "../../../assests/icons/search.png";
 import Menu from "../../../assests/icons/menu.png";
 import ButtonIcon from "../button-icon";
+import PropTypes from "prop-types";
 
-const NavBar = () => {
+const NavBar = ({searchValue,setSearchValue}) => {
+
+  const handleSearchValue = (e) =>{
+    console.log(e.target.value)
+    setSearchValue((searchValue)=>e.target.value);
+  }
+   
   return (
     <nav className="navbarContainer">
       <section className="left">
@@ -27,7 +34,7 @@ const NavBar = () => {
       <section className="middle">
         <div className="inputWrapper">
           <ButtonIcon iconUrl={Search} padding={"10px"} />
-          <input placeholder="Search"/>
+          <input value={searchValue} onChange={handleSearchValue} placeholder="Search"/>
         </div>
       </section>
       <section className="right">
@@ -64,5 +71,10 @@ const NavBar = () => {
     </nav>
   );
 };
+
+NavBar.prototype = {
+  searchValue : PropTypes.string,
+  setSearchValue : PropTypes.func
+}
 
 export default NavBar;
