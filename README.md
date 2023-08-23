@@ -23,9 +23,9 @@
 
 **Project Process**
 
-The entier project is been set up from scratch by taking advantage of webpack bundler and bable compiler to server the files to thhwe browser. For the development process I have used tools like storybook and react test library to make the development process more steam line.
+The entier project is been set up from scratch by taking advantage of webpack bundler and bable compiler to server the files to the browser. For the development process I have used tools like storybook and react test library to make the development process more steam line.
 
-The main components of the project is the [ListComponent](https://github.com/bheemeshmsd/POC/tree/main/src/components/list-component) and the [ListItem](https://github.com/bheemeshmsd/POC/tree/main/src/components/list-item)
+The main components of the project is the [ListComponent](https://github.com/bheemeshmsd/POC/tree/main/src/components/list-component) and the [ListItem](https://github.com/bheemeshmsd/POC/tree/main/src/components/list-item) . The ListItem is used as a child component inside the ListComponent to which the data is served through redux and persisted through the local storage. The local storage is emphasized through a [customHook](https://github.com/bheemeshmsd/POC/blob/main/src/hook/useLocalStorage.js).
 
 
 
