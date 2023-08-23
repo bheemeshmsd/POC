@@ -21,6 +21,14 @@
   npm run test
 ```
 
+**Project Process**
+
+The entier project is been set up from scratch by taking advantage of webpack bundler and bable compiler to server the files to thhwe browser. For the development process I have used tools like storybook and react test library to make the development process more steam line.
+
+The main components of the project is the [ListComponent](https://github.com/bheemeshmsd/POC/tree/main/src/components/list-component) and the [ListItem](https://github.com/bheemeshmsd/POC/tree/main/src/components/list-item)
+
+
+
 **Package Used and it's use case in the project**
 
 Babel Packages (e.g., @babel/core, @babel/preset-env, @babel/preset-react): Babel is used to transpile modern JavaScript code, including JSX (JavaScript XML), into browser-compatible code. This is important because browsers might not support the latest JavaScript features. Babel allows you to write code using the latest language features while ensuring compatibility across different browsers.
