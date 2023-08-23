@@ -118,20 +118,25 @@ body {
 .listNavBar {
     height: 50px;
     width: 100%;
-    @include flexbox-style(space-around);
-    margin-bottom: 10px;
+    @include flexbox-style($justify:flex-start);
     position: relative;
+    padding-left: 20px;
 
     h2 {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         width: 75%;
-        text-align: center;
+        letter-spacing: .00625em;
+        font-family: "Google Sans", Roboto, Arial, sans-serif;
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.5rem;
     }
 
     button {
         height: 25px;
+        width: 20%;
         @include flexbox-style;
         @extend %rm-outline-border;
         cursor: pointer;
@@ -143,6 +148,7 @@ body {
         img {
             height: 100%;
             width: 100%;
+            object-fit: contain;
         }
     }
 }
@@ -170,8 +176,8 @@ body {
 
 .listItem {
     height: fit-content;
-    width: 100%;
-    @include flexbox-style(space-between);
+    width: 93%;
+    @include flexbox-style($justify:flex-start, $gap:10px);
 
     input {
         margin-left: 10px;
@@ -187,6 +193,12 @@ body {
         width: 75%;
         overflow: hidden;
         text-overflow: ellipsis;
+        letter-spacing: .01428571em;
+        font-family: Roboto, Arial, sans-serif;
+        font-size: .875rem;
+        font-weight: 400;
+        line-height: 1.25rem;
+        color: #202124;
     }
 
 

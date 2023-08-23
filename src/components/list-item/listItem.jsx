@@ -8,15 +8,17 @@ const ListItem = ({ content, toDoIndex }) => {
   const dispatch = useDispatch();
 
   const handleCheckBox = (e) => {
-    dispatch(updateItem({ listId:content.listId, checked: e.target.checked, id:toDoIndex }));
+    dispatch(
+      updateItem({
+        listId: content.listId,
+        checked: e.target.checked,
+        id: toDoIndex,
+      })
+    );
   };
-
-
   const handleDelete = () => {
-    dispatch(deleteItem({id : toDoIndex,listId: content.listId }));
+    dispatch(deleteItem({ id: toDoIndex, listId: content.listId }));
   };
-
-  
 
   return (
     <div title="list-container" className="listItem" key={toDoIndex}>
@@ -26,10 +28,12 @@ const ListItem = ({ content, toDoIndex }) => {
         checked={content.checkBox}
         title="checkBox"
       ></input>
-      <h3 title="listValue" className={content?.checkBox ? "strike" : ""}>{content.value}</h3>
-      <button onClick={handleDelete}>
+      <h3 title="listValue" className={content?.checkBox ? "strike" : ""}>
+        {content.value}
+      </h3>
+      {/* <button onClick={handleDelete}>
         <img src={deleteIcon}></img>
-      </button>
+      </button> */}
     </div>
   );
 };
