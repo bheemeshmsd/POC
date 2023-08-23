@@ -9,7 +9,7 @@ import useLocalStorage from "./hook/useLocalStorage";
 
 const App = () => {
   const state = useSelector((state) => state);
-  const [listState, setListState] = useLocalStorage("titles", state);
+  const [listState, setListState] = useLocalStorage("toDoLists", state);
   const [searchValue, setSearchValue] = useState("");
   const [titlesArray, setTitleArray] = useState([...listState.titles]);
 

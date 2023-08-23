@@ -7,7 +7,7 @@ import {
   UPDATE_TITLE,
 } from "../actions/actionType";
 
-const listState = JSON.parse(localStorage.getItem("list"));
+const listState = JSON.parse(localStorage.getItem("toDoLists"));
 
 const initialState = {
   titles: listState?.titles || [],
