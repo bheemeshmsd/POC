@@ -38,7 +38,7 @@ const ListItem = ({ content, toDoIndex }) => {
   );
 };
 
-ListItem.prototype = {
+ListItem.prototypes = {
   content: PropTypes.object,
   index: PropTypes.number,
   toDoIndex: PropTypes.number,

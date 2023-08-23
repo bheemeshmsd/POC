@@ -162,13 +162,12 @@ body {
     textarea {
         @extend %rm-outline-border;
         width: calc(100% - 50px);
-        min-height: 50px;
+        min-height: 20px;
+        height: 100%;
+        max-height: 100px;
         resize: none;
         overflow: hidden;
         text-overflow: ellipsis;
-        border: 1px solid #e0e6ed;
-        border-radius: 5px;
-        padding: 10px;
         margin: 10px 0;
 
     }

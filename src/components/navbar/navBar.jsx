@@ -10,13 +10,12 @@ import Menu from "../../../assests/icons/menu.png";
 import ButtonIcon from "../button-icon";
 import PropTypes from "prop-types";
 
-const NavBar = ({searchValue,setSearchValue}) => {
+const NavBar = ({ searchValue, setSearchValue }) => {
+  const handleSearchValue = (e) => {
+    console.log(e.target.value);
+    setSearchValue((searchValue) => e.target.value);
+  };
 
-  const handleSearchValue = (e) =>{
-    console.log(e.target.value)
-    setSearchValue((searchValue)=>e.target.value);
-  }
-   
   return (
     <nav className="navbarContainer">
       <section className="left">
@@ -27,14 +26,18 @@ const NavBar = ({searchValue,setSearchValue}) => {
           padding={"7px"}
         />
         <div className="iconTab prevent-hover">
-          <ButtonIcon iconUrl={Keeps}  width={"50px"} height={"50px"} />
+          <ButtonIcon iconUrl={Keeps} width={"50px"} height={"50px"} />
           <p>Keep</p>
         </div>
       </section>
       <section className="middle">
         <div className="inputWrapper">
           <ButtonIcon iconUrl={Search} padding={"10px"} />
-          <input value={searchValue} onChange={handleSearchValue} placeholder="Search"/>
+          <input
+            value={searchValue}
+            onChange={handleSearchValue}
+            placeholder="Search"
+          />
         </div>
       </section>
       <section className="right">
@@ -72,9 +75,9 @@ const NavBar = ({searchValue,setSearchValue}) => {
   );
 };
 
-NavBar.prototype = {
-  searchValue : PropTypes.string,
-  setSearchValue : PropTypes.func
-}
+NavBar.prototypes = {
+  searchValue: PropTypes.string,
+  setSearchValue: PropTypes.func,
+};
 
 export default NavBar;

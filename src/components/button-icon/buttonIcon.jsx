@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const ButtonIcon = ({ iconUrl, height, width, padding,backgroundColor}) => {
+const ButtonIcon = ({ iconUrl, height, width, padding, backgroundColor }) => {
   return (
     <button
       className="buttonContainer"
@@ -9,7 +9,7 @@ const ButtonIcon = ({ iconUrl, height, width, padding,backgroundColor}) => {
         height: height || "40px",
         width: width || "40px",
         padding: padding,
-        backgroundColor:backgroundColor
+        backgroundColor: backgroundColor,
       }}
     >
       <img title="button-icon" src={iconUrl}></img>
@@ -17,7 +17,7 @@ const ButtonIcon = ({ iconUrl, height, width, padding,backgroundColor}) => {
   );
 };
 
-ButtonIcon.prototype = {
+ButtonIcon.prototypes = {
   iconUrl: PropTypes.string,
   height: PropTypes.string,
   width: PropTypes.string,

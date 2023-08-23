@@ -15,13 +15,19 @@ const ListComponent = ({ listItemArray, id, title }) => {
   const [edit, setEdit] = useState(false);
   const [currentTitle, setCurrentTitle] = useState(title);
   const dispatch = useDispatch();
+  const checkedElements = listItemArray.filter((value) => value.checkBox);
+  const unCheckedElements = listItemArray.filter((value) => !value.checkBox);
+  const lineSeperator = listItemArray.findIndex(
+    (value) => value.checkBox === true
+  );
+  console.log(lineSeperator);
 
   const handleDeleteTodo = (id) => {
     dispatch(deleteTitle({ id }));
   };
 
   const handleListInput = (e) => {
-    setCurrentItem((currentItem) => e.target.value);
+    setCurrentItem((currentItem) => e.target.value.trimStart());
   };
 
   const handleTitleInput = (e) => {
@@ -39,7 +45,8 @@ const ListComponent = ({ listItemArray, id, title }) => {
     if (e.key === "Enter" && currentItem.length > 0) {
       const listId = v4();
       dispatch(addItem({ value: currentItem, checkBox: false, id, listId }));
-      setCurrentItem("");
+      const temp = "";
+      setCurrentItem((currentItem) => temp.trim());
     }
   };
 
@@ -72,7 +79,7 @@ const ListComponent = ({ listItemArray, id, title }) => {
         </button>
       </div>
       <div className="listBody" onClick={removeEdit}>
-        {listItemArray?.map((value) => (
+        {unCheckedElements?.map((value) => (
           <ListItem content={value} toDoIndex={id} />
         ))}
         <textarea
@@ -81,12 +88,18 @@ const ListComponent = ({ listItemArray, id, title }) => {
           onKeyDown={handleKeyPress}
           placeholder="Add a list..."
         ></textarea>
+        {checkedElements.length > 0 && (
+          <hr style={{ borderColor: "rgba(0,0,0,.1)", width: "85%" }}></hr>
+        )}
+        {checkedElements?.map((value) => (
+          <ListItem content={value} toDoIndex={id} />
+        ))}
       </div>
     </div>
   );
 };
 
-ListComponent.prototype = {
+ListComponent.prototypes = {
   listItemArray: PropTypes.array,
   id: PropTypes.number,
   title: PropTypes.string,
